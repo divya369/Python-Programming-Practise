@@ -3,21 +3,21 @@
 #  You will parse the From line using split() and print out the second word in the line (i.e. the entire address of the person who sent the message). Then print out a count at the end.
 #  Hint: make sure not to include the lines that start with 'From:'.
 
-# fname = input("Enter file name: ")
-# if len(fname) < 1 : fname = "mbox-short.txt"
-# try:
-#     fh = open(fname)
-# except:
-#     print("File cannot be opened !!")
-#
-# count = 0
-# for line in fh:
-#     line = line.rstrip()
-#     if line.startswith('From '):
-#         stuffs = line.split()
-#         print(stuffs[1])
-#         count = count + 1
-# print("There were", count, "lines in the file with From as the first word")
+fname = input("Enter file name: ")
+if len(fname) < 1 : fname = "mbox-short.txt"
+try:
+    fh = open(fname)
+except:
+    print("File cannot be opened !!")
+
+count = 0
+for line in fh:
+    line = line.rstrip()
+    if line.startswith('From '):
+        stuffs = line.split()
+        print(stuffs[1])
+        count = count + 1
+print("There were", count, "lines in the file with From as the first word")
 
 
 
@@ -28,31 +28,31 @@
 
 # name = input("Enter file:")
 name = "/Users/divyapatel/Github/Python-Programming-Practise/Python Data Structures/mbox-short.txt"
-# if len(name) < 1 : name = "mbox-short.txt"
-# try:
-#     handle = open(name)
-# except:
-#     print("File cannot be opened !!")
-#
-# emails = dict()
-# for line in handle:
-#     line = line.rstrip()
-#     if line.startswith('From'):
-#         words = line.split()
-#         emails[words[1]] = emails.get(words[1], 0) + 1
-#
-# final_email = None
-# final_email_count = 0
-# for key, value in emails.items():
-#     if final_email is None or final_email_count < value:
-#         final_email_count = value
-#         final_email = key
-#
-# print("{0} {1}".format(final_email, final_email_count))
-
-
-name = input("Enter file:")
 if len(name) < 1 : name = "mbox-short.txt"
+try:
+    handle = open(name)
+except:
+    print("File cannot be opened !!")
+
+emails = dict()
+for line in handle:
+    line = line.rstrip()
+    if line.startswith('From'):
+        words = line.split()
+        emails[words[1]] = emails.get(words[1], 0) + 1
+
+final_email = None
+final_email_count = 0
+for key, value in emails.items():
+    if final_email is None or final_email_count < value:
+        final_email_count = value
+        final_email = key
+
+print("{0} {1}".format(final_email, final_email_count))
+
+
+# name = input("Enter file:")
+# if len(name) < 1 : name = "mbox-short.txt"
 try:
 	handle = open(name)
 except:
